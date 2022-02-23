@@ -1,6 +1,9 @@
 class Boat{
 
-    constructor(x,y,width,height,boatPos){
+    constructor(x,y,width,height,boatPos,boatAnimation){
+
+        this.animation = boatAnimation;
+        this.speed = 0.05;
 
         this.width = width;
         this.height = height;
@@ -8,7 +11,7 @@ class Boat{
 
         this.boatPosition = boatPos;
 
-        this.image = loadImage("./assets/boat.png")
+        //this.image = loadImage("./assets/boat.png")
 
         World.add(world, this.body);
 
@@ -19,11 +22,14 @@ class Boat{
         var angle = this.body.angle;
         //var pos = this.body.position;
 
+        var index = floor(this.speed % this.animation.length);
+
+
         push();
         translate(this.body.position.x,this.body.position.y);
         rotate(angle);
         imageMode(CENTER);
-        image(this.image,0,this.boatPosition,this.width,this.height);
+        image(this.animation[index],0,this.boatPosition,this.width,this.height);
         pop();
     }
 
@@ -41,5 +47,10 @@ class Boat{
         },2000);
 
         
+    }
+
+    animate(){
+        this.speed+=0.05;
+
     }
 }
