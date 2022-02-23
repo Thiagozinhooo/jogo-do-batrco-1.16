@@ -35,7 +35,7 @@ class CannonBall {
     var pos = this.body.position;
 
     push();
-    tranlate(pos.x, pos.y);
+    translate(pos.x, pos.y);
     rotate(angle);
     imageMode(CENTER);
     image(this.image, 0, 0, this.r, this.r);
