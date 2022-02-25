@@ -39,7 +39,7 @@ function setup() {
   cannon = new Cannon(180, 110, 130, 100, angle);
   
   var boatFrames = boatSpritedata.frames;
-  for (i=0; i<boatFrames.length; i++){
+  for (var i=0; i<boatFrames.length; i++){
 
     var pos = boatFrames[i].position;
     var img = boatSpritesheet.get(pos.x, pos.y, pos.w, pos,h);
@@ -108,7 +108,7 @@ function showBoats(){
     }
 
     for (var i = 0; i < boat.length; i++){
-      if(boat[i]){
+      if(boat[i]){  
        Matter.Body.setVelocity(boat[i].body, {x:-2 ,y:0})
        boat[i].display();
        boat[i].animate();
